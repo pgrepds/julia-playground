@@ -105,3 +105,25 @@ We import and run the Pluto environment as follows.
 julia> import Pluto
 julia> Pluto.run()
 ```
+
+Notice that by design outputs of the `print` command will not show inside the notebook but in the terminal. If we want to change this, then could use the `PlutoUI` package.
+
+```julia
+julia> ]
+(@v1.7) pkg> add PlutoUI
+julia> using PlutoUI
+```
+
+Notice that we can also run `using PlutoUI` in a Pluto cell, which will do the exact same thing as the commands entered above.
+
+We can use the following command in a Pluto cell now.
+
+```julia
+Print("Hello World")
+```
+
+## VSCode
+
+We can also use a Julia notebook (or Julia in general) in VSCode using the offical Julia extension, which is my preferred way of using Julia.
+
+This usage is straight forward as well. We create a new '.ipynb' file and select the Julia extension (or the local installation) as the Jupyter kernel and we are ready to go.
