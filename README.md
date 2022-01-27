@@ -6,68 +6,102 @@ The following repository contains code for exploring the Julia programming langu
 
 The installation on my Manjaro Linux machine is straight forward. We execute the following command.
 
-```
+```bash
 sudo pacman -S julia
 ```
 
 We should be able to run Julia now by executing the following command.
 
-```
+```bash
 julia
 ```
 
 We could execute Julia commands directly in the terminal. Let us use the classic "Hello World" example which is straight forward as well.
 
-```
-print("Hello World")
+```julia
+julia> print("Hello World")
 ```
 
 In order to exit the 'Julia' environment just run the following command.
 
-```
-exit()
+```julia
+julia> exit()
 ```
 
-Next, we create a file called "hello.jl" and append the same command in it by using a standard text editor or by piping the command line directly.
+Next, we create a file called 'hello.jl' and append the same command in it by using a standard text editor or by piping the command line directly.
 
 We can run this file as follows.
 
-```
+```bash
 julia hello.jl
 ```
 
-## Julia packages
+## Julia packages and using Jupyter
 
 If we want to import julia packages, there are several ways to achieve this. First, we enter the julia terminal environment once again.
 
-```
+```bash
 julia
 ```
 
 Then, we run the following command.
 
 ```
-using Pkg
+julia> using Pkg
 ```
 
 `Pkg` is Julia's builtin package manager. A more in-depth documentation can be found on the [Julia webpage](https://docs.julialang.org/en/v1/stdlib/Pkg/).
 
-In order to add a package for using Julia with a Jupyter notebook, well known in the world of Python, we execute the following command.
+In order to add a package for using the Jupyter Kernel for Julia we execute the following command.
 
-```
-Pkg.add("IJulia")
+```julia
+julia> Pkg.add("IJulia")
 ```
 
 If we want to remove a package, we simply execute the following command.
 
-```
-Pkg.rm("IJulia")
+```julia
+julia> Pkg.rm("IJulia")
 ```
 
 Updating the packages is pretty straight forward. We execute the following command.
 
-```
-Pkg.update()
+```julia
+julia> Pkg.update()
 ```
 
 There is also a different way for interacting with the Julia package manager. Enter `]` in the Julia command environment in order to enter the package manager environment.
+
+Every command can now be used directly without using `Pkg` (e.g. instead of saying `Pkg.update()` we can simply say `update()`). Typing the `backspace` once, brings us back to the Julia command prompt.
+
+Starting a new notebook is achieved by executing the following command.
+
+```julia
+julia> notebook()
+```
+
+If we choose to use JupyterLab (a more "IDE" like experience) instead, we execute the following command.
+
+```julia
+julia> jupyterlab()
+```
+
+More in-depth information can be found in the official [IJulia documentation](https://juliahub.com/ui/Packages/IJulia/nfu7T/1.21.2).
+
+## Pluto
+
+There is a Jupyter environment on steroids called [Pluto.jl](https://github.com/fonsp/Pluto.jl) for the Julia programming language which looks very promising (e.g. changing one cell instantly updates all other cells referencing code from this cell, which seems to be a major advantage compared to "normal" Jupyter notebooks).
+
+We can use it by adding the following package.
+
+```julia
+julia> ]
+(@v1.7) pkg> add Pluto
+```
+
+We import and run the Pluto environment as follows.
+
+```julia
+julia> import Pluto
+julia> Pluto.run()
+```
