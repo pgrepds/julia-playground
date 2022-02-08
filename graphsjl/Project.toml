@@ -1,0 +1,4 @@
+name = "graphsjl"
+uuid = "3337aaed-b4bf-4eb0-90bf-05341daae24f"
+authors = ["pgrepds <david.scholz@pgrepds.io>"]
+version = "0.1.0"
